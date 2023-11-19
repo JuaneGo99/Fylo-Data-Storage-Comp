@@ -1,0 +1,25 @@
+@mixin background($bg-image){    
+    background: {
+        image: url($bg-image);
+        repeat: no-repeat;
+        size: cover;
+    };
+}
+
+@mixin box-container($width, $height, $bc-color, $color, $padding, $ma-botton){
+    width: $width;
+    height: $height;
+    background-color: $bc-color;
+    color: $color;
+    padding: $padding;
+    margin-bottom: $ma-botton;
+}
+
+@mixin box-available($width, $height, $display, $alitem, $juscontent, $bg-color){
+    width: $width;
+    height: $height;
+    display: $display;
+    align-items: $alitem;
+    justify-content: $juscontent;
+    background-color: $bg-color;
+}

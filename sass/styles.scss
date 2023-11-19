@@ -1,0 +1,201 @@
+@use 'variables';
+@use 'mixins';
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    @include mixins.background('../images/bg-mobile.png');
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+@media (min-width:1024px) {
+    body{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-image: none;
+        background-color: variables.$Very-Dark-Blue;
+        overflow: hidden;
+    }
+
+    body::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        @include mixins.background('../images/bg-desktop.png');
+        height: 52%;
+        z-index: 10;
+    }
+
+}
+
+
+.main__container{
+    padding: 127px 0 163px;
+    margin: 0 auto;
+}
+
+@media (min-width:1024px){
+    .main__container{
+        position: relative;
+        display: flex;
+        align-items: end;
+        padding: 0;
+        margin: auto;
+        z-index: 20;
+    }
+}
+
+.deliver{
+    @include mixins.box-container(326px, 200px, variables.$Dark-Blue, variables.$Pale-Blue, 40px, 15px);
+    border-radius: 8px 40% 8px 8px;
+
+    &__logo{
+        width: 130px;
+        margin-bottom: 30px;
+    }
+}
+@media (min-width:1024px) {
+    .deliver{
+        width: 350px;
+        height: 200px;
+        border-top-right-radius: 30% 50%;
+        margin-right: 30px;
+        padding: 40px;
+    }
+}
+
+.files{
+    display: flex;
+    &__type{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 49px;
+        height: 49px;
+        background-color: variables.$Very-Dark-Blue;
+        padding: 11px 12px;
+        border-radius: 8px;
+    }
+    
+    .folder{
+        margin: 0 14px
+    }
+}
+
+.storage{
+    @include mixins.box-container(326px, 160px, variables.$Dark-Blue, variables.$Pale-Blue, 32px, 15px);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;    
+
+    &__paragraph span{
+        font-weight: 700;
+    }
+
+    &__total{
+        width: 100%;
+        height: 20px;
+        background-color: variables.$Very-Dark-Blue-Alpha;
+        border-radius: 40px;
+        margin-top: 15px;
+        position: relative;
+
+        &--used{
+            width: 75%;
+            height: 20px;
+            background: linear-gradient(to right, variables.$Gradient-pink, variables.$Gradient-red);
+            border-radius: 40px;
+            border: 2px solid variables.$Very-Dark-Blue;
+        }
+
+        &--used::before{
+            content: '';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 5px;
+            right: 72px;
+            background-color: variables.$Pale-Blue;
+            border-radius: 100%;
+        }
+    }
+
+    &__percentage{
+        display: flex;
+        justify-content: space-between;
+
+        p{
+            font-size: 0.8em;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+    }
+
+    &__available{
+        @include mixins.box-available(178px, 72px, flex, center, space-between, white);
+        color: variables.$Grayish-Blue;
+        border-radius: 10px;
+        position: absolute;
+        top: 120px;
+        left: 65px;
+        padding: 20px 25px;
+
+        .number{
+            font-size: 3em;
+            font-weight: 700;
+            color: variables.$Very-Dark-Blue;
+        }
+
+        .details{
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+}
+@media (min-width:1024px){
+    .storage{
+        width: 540px;
+        height: 153px;
+        padding: 45px 40px 0;
+        text-align: left;
+
+        &__total--used::before{
+            right: 120px;
+        }
+
+        &__available{
+            border-bottom-right-radius: 0;
+            top: -45px;
+            left: 322px;
+        }
+
+        &__available::after{
+            content: "";
+            border: 13px solid; 
+            border-color: white white transparent transparent;
+            position: absolute;
+            left: 152.5px;
+            top: 100%;
+        }
+    }
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: variables.$Pale-Blue; }
+
+@media (min-width:1024px){
+    .attribution{
+        width: 100%;
+        position: absolute;
+        z-index: 15;
+        bottom: 20px;
+        justify-items: center;
+    }
+}
