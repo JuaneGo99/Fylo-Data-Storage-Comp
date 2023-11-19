@@ -6,9 +6,7 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url(images/bg-mobile.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include mixins.background('images/bg-mobile.png');
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
 }
@@ -29,9 +27,7 @@ body{
         position: absolute;
         bottom: 0;
         width: 100%;
-        background-image: url(images/bg-desktop.png);
-        background-repeat: no-repeat;
-        background-size: cover;
+        @include mixins.background('images/bg-desktop.png');
         height: 52%;
         z-index: 10;
     }

@@ -1,3 +1,10 @@
+@mixin background($bg-image){    
+    background: {
+        image: url($bg-image);
+        repeat: no-repeat;
+        size: cover;
+    };
+}
 
 @mixin box-container($width, $height, $bc-color, $color, $padding, $ma-botton){
     width: $width;
